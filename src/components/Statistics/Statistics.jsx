@@ -10,7 +10,6 @@ export const Statistics = ({ title, stats }) => {
   return (
     <SectionStatistics>
       {title && <TitleStatistics>{title}</TitleStatistics>}
-
       <ListStatistics>
         {stats.map(stat => {
           let color = getRandomHexColor();
@@ -21,23 +20,18 @@ export const Statistics = ({ title, stats }) => {
             </li>
           );
         })}
-        {/* <li class="item">
-          <span class="label">{stats.label}</span>
-          <span class="percentage">{stats.percentage}</span>
-        </li>
-        <li class="item">
-          <span class="label">{stats.label}</span>
-          <span class="percentage">{stats.percentage}</span>
-        </li>
-        <li class="item">
-          <span class="label">{stats.label}</span>
-          <span class="percentage">{stats.percentage}</span>
-        </li>
-        <li class="item">
-          <span class="label">{stats.label}</span>
-          <span class="percentage">{stats.percentage}</span>
-        </li> */}
       </ListStatistics>
     </SectionStatistics>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ),
 };
