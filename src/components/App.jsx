@@ -3,16 +3,20 @@ import user from '../data/user.json';
 import friends from '../data/friends.json';
 import transactions from '../data/transactions.json';
 import { Profile } from '../components/Profile/Profile';
-
+import { Statistics } from '../components/Statistics/Statistics';
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+        // height: '100vh',
         display: 'flex',
+        paddingTop: 50,
+        paddingButton: 50,
         justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
-        fontSize: 40,
+        gap: 50,
+        fontSize: 36,
         color: '#010101',
       }}
     >
@@ -23,6 +27,8 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
       />
+      <Statistics title="Upload stats" stats={data} />
+      <Statistics stats={data} />
     </div>
   );
 };
